@@ -3,14 +3,15 @@ import { useState } from "react";
 export default function Form(props) {
   
   const [name, setName] = useState("")
+  
+  function handleChange(e){
+    setName(e.target.value)
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.addTask("Say hello!")
-  }
-
-  function handleChange(e){
-    console.log("typing")
+    props.addTask(name)
+    setName("");
   }
 
   return (
